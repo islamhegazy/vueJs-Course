@@ -1,0 +1,57 @@
+<!--26. Styling Elements with the Array Syntax-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>vueJs</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" type="text/css" media="screen" href=""/>
+                <script src="vue.js"></script>
+
+                <style>
+                    .demo{
+                        width: 100px;
+                        height: 100px;
+                        background-color: #333;
+                        display: inline-block;
+                        margin: 10px;
+                    }
+                    .red{
+                        background-color: red;
+                    }
+                    .green{
+                        background-color: green
+                    }
+                    .blue{
+                        background-color: blue
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="app">
+                   <div class="demo" :style="[mystyles , {height:width + 'px'}]"></div>
+                   <div class="demo" ></div>
+                  <hr>
+                   <input type="text" v-model="width">
+                   
+                </div>
+                <script>
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            color:'green',
+                            width:50
+                        },
+                        computed: {
+                            mystyles: function () {
+                               return{
+                                backgroundColor: this.color,
+                                width: this.width +'px'
+                               }
+                            }
+                        }
+                    })
+                </script>
+            </body>
+        </html>

@@ -1,0 +1,55 @@
+<!--23. Dynamic Styling with CSS Classes - Using Objects-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>vueJs</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" type="text/css" media="screen" href=""/>
+                <script src="vue.js"></script>
+
+                <style>
+                    .demo{
+                        width: 100px;
+                        height: 100px;
+                        background-color: #333;
+                        display: inline-block;
+                        margin: 10px;
+                    }
+                    .red{
+                        background-color: red;
+                    }
+                    .darkcyan{
+                        background-color: darkcyan
+                    }
+                    .blue{
+                        background-color: blue
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="app">
+                   <div class="demo" @click="attachRed=!attachRed"
+                   :class="{ red: attachRed, blue: !attachRed }"></div>
+                   <div class="demo" :class={red:attachRed}></div>
+                   <div class="demo" :class="divClass"></div>
+                </div>
+                <script>
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            attachRed:false
+                        },
+                        computed: {
+                            divClass: function () {
+                               return{
+                                red: this.attachRed,
+                                blue: !this.attachRed
+                               }
+                            }
+                        }
+                    })
+                </script>
+            </body>
+        </html>

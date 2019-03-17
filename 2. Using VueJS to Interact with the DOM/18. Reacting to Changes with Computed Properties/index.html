@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>vueJs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="screen" href=""/>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <!--
+            <div id="app">
+            <button v-on:click="Increase">Increase</button>
+            <button v-on:click="Decrease">Decrease</button>
+            <p>Counter:
+                {{counter}}</p>
+            <p>Result:
+                {{result}}</p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    counter: 0,
+                    result: ''
+                },
+                methods: {
+                    Increase: function () {
+                        this.counter++;
+                        this.result = this.counter > 5
+                            ? 'Greater than 5'
+                            : 'Smaller than 5'
+                    },
+                    Decrease: function () {
+                        this.counter--;
+                        this.result = this.counter > 5
+                            ? 'Greater than 5'
+                            : 'Smaller than 5'
+                    }
+                }
+            })
+        </script>
+    -->
+
+        <!--Another way  - 18. Reacting to Changes with Computed Properties-->
+        <!--any function called in html it will executed every time the page do any action like click or any thing but any function in computed will not executed at any change in html expect it will 
+    execute if there thing related to his function-->
+        <!--the benefits of computed is cach and provide the peformance -->
+        <!--
+      <div id="app">
+                    <div>
+                        <h3> computed</h3>
+                       <label>First Name</label>
+                       <input type="text" v-model="first_name"/>
+                       <h4>firstname is : {{firstName}}</h4>
+                       <hr>
+                       <h3>methods</h3>
+                       <label>last Name</label>
+                       <input type="text" v-model="last_name"/>
+                       <h4>lastname is : {{lastName()}}</h4>
+                      <hr>
+                      <h3>the full name</h3>
+                        <h4>{{first_name + ' ' +  last_name +"     The Date:" + Date.now()}}</h4>
+                    </div>
+                </div>
+                <script>
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            first_name:"islam",
+                            last_name:'hegazy'
+                        },
+                        computed: {
+                            firstName:function(){
+                                return  this.first_name  +"     The Date:" + Date.now()
+                            }
+                        },
+                        methods: {
+                            lastName:function(){
+                                return  this.last_name + "     The Date:" + Date.now()
+                            }
+                        }
+                    })
+                </script>
+-->
+        <!--Another example-->
+        <!--the result run every time but c
+        omputed not intersteed to secoundCounter at all-->
+        <div id="app">
+            <button class="btn btn-primary" v-on:click="counter++">Increase</button>
+            <button class="btn btn-danger" v-on:click="counter--">Decrease</button>
+            <button class="btn btn-success" v-on:click="secondCounter++">Increse Second</button>
+            <p>Counter:{{counter}} | secondCounter:{{secondCounter}}</p>
+            
+            <p>result:{{result()}} | {{output}}</p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    counter: 0,
+                    secondCounter:0
+                },
+                computed: {
+                    output:function(){
+                        console.log("computed")
+                        return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
+                    }
+                },
+                methods: {
+                    result:function(){
+                        console.log("methods")
+                        return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

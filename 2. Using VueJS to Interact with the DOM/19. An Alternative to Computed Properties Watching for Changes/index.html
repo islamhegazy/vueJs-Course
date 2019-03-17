@@ -1,0 +1,53 @@
+
+
+<!--19. An Alternative to Computed Properties Watching for Changes -->
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <title>vueJs</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <link rel="stylesheet" type="text/css" media="screen" href=""/>
+                    <script src="vue.js"></script>
+                </head>
+                <body>
+                    <div id="app">
+                        <button class="btn btn-primary" v-on:click="counter++">Increase</button>
+                        <button class="btn btn-danger" v-on:click="counter--">Decrease</button>
+                        <button class="btn btn-success" v-on:click="secondCounter++">Increse Second</button>
+                        <p>Counter:{{counter}} | secondCounter:{{secondCounter}}</p>
+                        
+                        <p>result:{{result()}} | {{output}}</p>
+                    </div>
+                    <script>
+                        new Vue({
+                            el: '#app',
+                            data: {
+                                counter: 0,
+                                secondCounter:0
+                            },
+                            computed: {
+                                output:function(){
+                                    console.log("computed")
+                                    return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
+                                }
+                            },
+                            watch: {
+                                counter:function(value){
+                                    var vm = this;
+                                   setTimeout(function(){
+                                       vm.counter=0;
+                                   } ,2000)
+                                }
+                            },
+                            methods: {
+                                result:function(){
+                                    console.log("methods")
+                                    return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
+                                }
+                            }
+                        })
+                    </script>
+                </body>
+            </html>
