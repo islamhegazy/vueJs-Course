@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>vueJs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href=""/>
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app1">
+            <h1 ref="heading">{{title}}</h1>
+            <!--ref is key add by vueJs-->
+           <button @click="show" ref="myButton">show paragraph</button>
+           <p v-if="showPragraph">This is not always visible</p>
+        </div>
+        <div id="app2">
+                <h1 >{{title}}</h1>
+                <button @click="onChange">Change something in Vue 1</button>
+                <hello></hello>
+                <hello></hello>
+            </div>
+            <div id="app3"></div>
+          
+        <script>
+            var data ={
+                    title:'The VusJs Instance',
+                    showPragraph:false
+                };
+                Vue.component(`hello`,{
+                    template:'<h1>hello component!</h1>'
+                });
+          var vm1 = new Vue({
+                data: data,
+                methods: {
+                    show:function(){
+                        this.showPragraph=true;
+                        this.updateTitle('The vueJs Instance (Updated)');
+                        console.log(this.$refs)
+                        console.log(this.$refs.myButton.innerText = "Test")
+                    },
+                    updateTitle:function(title){
+                        this.title=title;
+                    }
+                },
+                computed: {
+                    lowercaseTitle:function(){
+                        return this.title.toLowerCase();
+                    }
+                },
+                watch: {
+                    title:function(value){
+                        alert('Title changed, new value: ' + value)
+                    }
+                },
+            });
+
+           vm1.$mount('#app1'); //nested of el: in new Vue
+
+            console.log(vm1.$data === data);
+           
+            vm1.$refs.heading.innerText="Something else";
+           
+            setTimeout(function(){
+                vm1.title = 'changed by timer from out';
+                vm1.show();
+            },3000)
+            var vm2 = new Vue({
+                el:'#app2',
+                data: {
+                    title:'The Second Instance',
+                },
+                methods:{
+                    onChange:function(){
+                        vm1.title = 'Changed!';
+                      
+                    }
+                }
+            });
+
+            var vm3 = new Vue ({
+                template: '<h1>hellow vm3</h1>'
+            });
+
+            vm3.$mount('#app3'); 
+            //or can appedn it using normal js
+            //vm3.$mount();
+            //document.getElementById('app3').appendChild(vm3.$el);
+        </script>
+    </body>
+</html>

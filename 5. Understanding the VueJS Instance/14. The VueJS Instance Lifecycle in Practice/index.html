@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>vueJs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href=""/>
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <h1>{{title}}</h1>
+          <button @click="title='Changed'">Update title</button>
+          <button @click="destroy">Destory</button>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                 title: 'The VueJs Instance'
+                },
+                beforeCreate:function(){
+                    console.log('beforeCreate()')
+                },
+                created:function(){
+                    console.log('created()')
+                },
+                beforeMount:function(){
+                    console.log('beforeMount()')
+                },
+                mounted:function(){
+                    console.log('mounted()')
+                },
+                beforeUpdate:function(){
+                    console.log('beforeUpdate()')
+                },
+                updated:function(){
+                    console.log('updated()')
+                },
+                //destroy mean that the vue instance is deaded
+                //and no updated done or any thing by vue done
+                beforeDestroy:function(){
+                    console.log('beforeDestory()')
+                },
+                destroyed:function(){
+                    console.log('destoryed()')
+                },
+                methods: {
+                    destroy:function(){
+                        this.$destroy();
+                    }
+                },
+
+            })
+        </script>
+    </body>
+</html>

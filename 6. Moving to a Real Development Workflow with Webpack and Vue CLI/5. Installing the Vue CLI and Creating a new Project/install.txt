@@ -1,0 +1,9 @@
+1- install nodeJs
+2- npm i -g vue-cli
+3- vue init webpack-simple vue-cli
+
+  To get started:
+
+     cd vue-cli
+     npm install
+     npm run dev
