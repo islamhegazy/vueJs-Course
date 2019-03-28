@@ -10,9 +10,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <h1>Custom Directives</h1>
-                    <!--passing arguments like :background-->
-                    <!--.delayed modifiers-->
-                <p v-highlight:background="'red'">Color this</p>
+                <p v-highlight>Color this</p>
             </div>
         </div>
             </div>
