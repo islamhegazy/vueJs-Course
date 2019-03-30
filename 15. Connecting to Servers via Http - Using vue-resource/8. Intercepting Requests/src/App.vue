@@ -36,23 +36,20 @@
                   username:'',
                   email:''
               },
-              users:[],
-              //10. Where the resource in vue-resource Comes From
-              resource:{}
+              users:[]
             }
         },
         methods: {
          submit(){
-        //    this.$http.post('data.json',this.user)
-        //     .then(response =>{
-        //         console.log(response)
-        //     },error =>{
-        //         console.log(error)
-        //     });
-        this.resource.save({},this.user);
+           this.$http.post('',this.user)
+            .then(response =>{
+                console.log(response)
+            },error =>{
+                console.log(error)
+            });
          },
          fetchData(){
-            this.$http.get('data.json')
+            this.$http.get('')
             .then(response =>{
             return  response.json();
             
@@ -67,10 +64,7 @@
               
             });
          }
-        },
-        created() {
-            this.resource = this.$resource('data.json');
-        },
+        }
     }
 </script>
 

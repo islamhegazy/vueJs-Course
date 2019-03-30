@@ -15,7 +15,7 @@
                 <hr>
                 <button class="btn btn-primary" @click="fetchData">Get Data</button>
                 <h3>user data</h3>
-                <ul class="list-group" >
+                <ul class="list-group">
                     <li class="list-group-item"
                         v-for="u in users" :key="u.user">  
                         {{u.username}} - {{u.email}} 
@@ -36,23 +36,20 @@
                   username:'',
                   email:''
               },
-              users:[],
-              //10. Where the resource in vue-resource Comes From
-              resource:{}
+              users:[]
             }
         },
         methods: {
          submit(){
-        //    this.$http.post('data.json',this.user)
-        //     .then(response =>{
-        //         console.log(response)
-        //     },error =>{
-        //         console.log(error)
-        //     });
-        this.resource.save({},this.user);
+           this.$http.post('',this.user)
+            .then(response =>{
+                console.log(response)
+            },error =>{
+                console.log(error)
+            });
          },
          fetchData(){
-            this.$http.get('data.json')
+            this.$http.get('')
             .then(response =>{
             return  response.json();
             
@@ -67,10 +64,7 @@
               
             });
          }
-        },
-        created() {
-            this.resource = this.$resource('data.json');
-        },
+        }
     }
 </script>
 
