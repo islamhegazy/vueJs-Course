@@ -1,8 +1,8 @@
 {
   "name": "vue-cli",
-  "description": "vue.js project",
+  "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "islam <islam.ab.hegazy@gmail.com>",
+  "author": "islam hegazy <islam.ab.hegazy@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
