@@ -1,8 +1,8 @@
 {
   "name": "vue-cli",
-  "description": "A Vue.js project",
+  "description": "vue.js project",
   "version": "1.0.0",
-  "author": "islam hegazy <islam.ab.hegazy@gmail.com>",
+  "author": "islam <islam.ab.hegazy@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "vue": "^2.5.11",
-    "vue-resource": "^1.5.1"
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.0.2"
   },
   "browserslist": [
     "> 1%",
