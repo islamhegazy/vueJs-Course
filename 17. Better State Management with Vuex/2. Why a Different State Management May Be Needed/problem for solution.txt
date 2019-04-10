@@ -1,0 +1,6 @@
+for example one bus alone will quickely get pretty crowded in bigger apps with a lot
+of different emits and so on,
+so there probably is a lot of code in this instance and in the end which arguably is
+maybe not the best solution for this it also gives us another problem:
+1- The change we make are hard to track.
+
